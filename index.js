@@ -3,9 +3,11 @@ const dotenv = require('dotenv');
 const firebase = require('firebase');
 var http = require('http');
 
- http.createServer(function (req, res) 
- { res.writeHead(200, {'Content-Type': 'text/plain'}); 
- res.send('it is running\n'); }).listen(process.env.PORT || 5000);
+var port = process.env.PORT || 8000
+
+server.listen(port, function() {
+  console.log("App is running on port " + port);
+});
 
  // load values from the .env file in this directory into process.env
 dotenv.load();
