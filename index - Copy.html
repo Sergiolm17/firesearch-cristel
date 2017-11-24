@@ -18,7 +18,9 @@
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <!-- Custom JS -->
-  <script src="js/chat.js"></script>
+  <script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+  
+  <script src="js/main.js"></script>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/chat.css">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -33,82 +35,29 @@
        
 <a  href="search.html"><i class="fa fa-toggle-on"></i>BUSCADOR</a>
 
+
+<div id="search-input"></div>
+
 <div class="panel panel-primary">
     <div class="panel-heading">
         Datos Personales
     </div>
     <div class="panel-body">
         <div class="form-group">
-            <label>Apellido</label>
-            <input id="lastname" class="form-control" type="text">
-        </div>
-        <div class="form-group">
-            <label>Nombre</label>
-            <input id="name" class="form-control" type="text">
+            <label>BUSCADOR</label>
         </div>
     </div>
 </div>
 
-<div class="panel panel-primary">
-    <div class="panel-heading">
-            Medida
+<div class="hit ">
     </div>
-    <div class="panel-body">
-        <div class="col-md-12 col-xs-12">
-                                <div class="col-md-3 col-xs-12"></div>
-                                <div class="col-md-3 col-xs-4 ">
-                                <label>ESF</label>       
-                                </div>
-                                <div class="col-md-3 col-xs-4 ">
-                                <label>CIL</label>
-                                </div>
-                                <div class="col-md-3 col-xs-4 ">
-                                <label>GRADO</label>
-                                    </div>  
-        </div>
-        <div class="col-md-12  col-xs-12">
-                                <div class="col-md-3 col-xs-12">
-                                    <label>OD</label>                                                               
-                                </div>
-                                <div class="col-md-3 col-xs-4 ">
-                                    <input type="number" class="form-control" id="odesf" placeholder="OD ESF" step="0.25"/>
-                                </div>
-                                <div class="col-md-3 col-xs-4 ">
-                                    <input type="number" class="form-control" id="odcil" placeholder="OD ESF" step="0.25"/>
-                                </div>
-                                <div class="col-md-3 col-xs-4 ">
-                                    <input type="number" class="form-control" id="odgrad" placeholder="OD GRADO"/>
-                                </div>  
-        </div>
-        <div class="col-md-12  col-xs-12">
-                                    <div class="col-md-3 col-xs-12">
-                                        <label>OI</label>                                                               
-                                    </div>
-                                    <div class="col-md-3 col-xs-4 ">
-                                        <input type="number" class="form-control" id="oiesf" placeholder="OD ESF" step="0.25"/>
-                                    </div>
-                                    <div class="col-md-3 col-xs-4 ">
-                                        <input type="number" class="form-control" id="oicil" placeholder="OD ESF" step="0.25"/>
-                                    </div> 
-                                    <div class="col-md-3 col-xs-4 ">
-                                        <input type="number" class="form-control" id="oigrad" placeholder="OI GRADO"/>
-                                    </div>  
-        </div>
-        <div class="col-md-12  col-xs-12"  style="padding:3%">
-                                        <div class="col-md-6 col-xs-6">
-                                            <label>DIP</label>                                                               
-                                        </div>
-                                        <div class="col-md-6 col-xs-6">
-                                            <input type="number" class="form-control" id="dip" placeholder="DIP"/>
-                                        </div>
-        </div>
-    </div>
-</div>
-<button id="add" type="button" class="btn btn-sm btn-primary">GUARDAR</button>         
+
+<div id="stats"></div>
 
 
 
-<div id="messagesDiv"></div>
+
+
 
 
 <div class="panel panel-primary">
