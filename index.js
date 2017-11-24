@@ -3,9 +3,6 @@ const dotenv = require('dotenv');
 const firebase = require('firebase');
 
 
-
-
-
  // load values from the .env file in this directory into process.env
 dotenv.load();
 console.log(process.env.FIREBASE_DATABASE_URL);
