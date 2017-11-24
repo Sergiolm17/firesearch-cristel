@@ -1,13 +1,10 @@
 const algoliasearch = require('algoliasearch');
 const dotenv = require('dotenv');
 const firebase = require('firebase');
-var http = require('http');
 
-var port = process.env.PORT || 8000
 
-server.listen(port, function() {
-  console.log("App is running on port " + port);
-});
+
+
 
  // load values from the .env file in this directory into process.env
 dotenv.load();
