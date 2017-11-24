@@ -29,10 +29,14 @@ http.createServer(function(req, res){
 const express = require('express')
 const app = express()
 
+
+
+app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/js'));
+
+
 app.get('/',function(req,res){
 
-  app.use(express.static(__dirname + '/css'));
-  app.use(express.static(__dirname + '/js'));
   
   res.sendFile(__dirname + '/index.html');
 });
