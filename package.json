@@ -20,6 +20,7 @@
   "dependencies": {
     "algoliasearch": "^3.24.6",
     "dotenv": "^4.0.0",
+    "express": "^4.16.2",
     "firebase": "^4.6.2",
     "nodemon": "^1.12.1"
   }
