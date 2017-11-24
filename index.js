@@ -2,6 +2,16 @@ const algoliasearch = require('algoliasearch');
 const dotenv = require('dotenv');
 const firebase = require('firebase');
 
+var http = require('http');
+
+//create a server object:
+http.createServer(function (req, res) {
+  res.write('Hello World!'); //write a response to the client
+  res.end(); //end the response
+}).listen(8080); 
+
+http.createServer(onRequest).listen(process.env.PORT || 6000)
+
 
  // load values from the .env file in this directory into process.env
 dotenv.load();
