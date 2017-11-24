@@ -31,7 +31,7 @@ const app = express()
 
 app.get('/', (req, res) => 
 
-res.sendFile('index.html');
+res.sendFile('index.html')
 )
 
 app.listen(process.env.PORT || 5000)
