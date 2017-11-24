@@ -1,8 +1,16 @@
 const algoliasearch = require('algoliasearch');
 const dotenv = require('dotenv');
 const firebase = require('firebase');
+var http = require('http');
 
-// load values from the .env file in this directory into process.env
+
+ http.createServer(function (req, res) 
+ { res.writeHead(200, {'Content-Type': 'text/plain'}); 
+ res.send('it is running\n'); }).listen(process.env.PORT || 5000);
+
+
+
+ // load values from the .env file in this directory into process.env
 dotenv.load();
 console.log(process.env.FIREBASE_DATABASE_URL);
 
