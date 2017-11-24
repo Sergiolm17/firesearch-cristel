@@ -10,8 +10,6 @@ http.createServer(function (req, res) {
   res.end(); //end the response
 }).listen(8080); 
 
-http.createServer(onRequest).listen(process.env.PORT || 6000)
-
 
  // load values from the .env file in this directory into process.env
 dotenv.load();
