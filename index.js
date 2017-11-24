@@ -31,7 +31,7 @@ const algolia = algoliasearch(
 const index = algolia.initIndex(process.env.ALGOLIA_INDEX_NAME);
 
 
-
+console.log('inicio');
 //REALTIME DATABASE
 
 
