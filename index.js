@@ -62,10 +62,10 @@ function addOrUpdateIndexRecord(contact) {
   index
     .saveObject(record)
     .then(() => {
-      console.log('Firebase object indexed in Algolia', record.objectID);
+      console.log('Objeto de Firebase indexado', record.objectID);
     })
     .catch(error => {
-      console.error('Error when indexing contact into Algolia', error);
+      console.error('Error al indexar objero en Algolia', error);
       process.exit(1);
     });
 }
@@ -77,10 +77,10 @@ function deleteIndexRecord(contact) {
   index
     .deleteObject(objectID)
     .then(() => {
-      console.log('Firebase object deleted from Algolia', objectID);
+      console.log('Objeto de Firebase eliminado de Algolia', objectID);
     })
     .catch(error => {
-      console.error('Error when deleting contact from Algolia', error);
+      console.error('Error al eliminar contacto en Algoliaa', error);
       process.exit(1);
     });
 }
