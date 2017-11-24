@@ -30,6 +30,9 @@ const express = require('express')
 const app = express()
 
 app.get('/',function(req,res){
+
+  app.use(express.static(__dirname + '/css'));
+  app.use(express.static(__dirname + '/js'));
   
   res.sendFile(__dirname + '/index.html');
 });
