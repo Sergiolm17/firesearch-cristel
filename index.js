@@ -19,7 +19,12 @@ const algolia = algoliasearch(
 );
 const index = algolia.initIndex(process.env.ALGOLIA_INDEX_NAME);
 
-//sincronizacion
+
+
+//REALTIME DATABASE
+
+
+
 const contactsRef = database.ref('/contacts');
 contactsRef.on('child_added', addOrUpdateIndexRecord);
 contactsRef.on('child_changed', addOrUpdateIndexRecord);
