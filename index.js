@@ -4,11 +4,26 @@ const firebase = require('firebase');
 
 var http = require('http');
 
+/*
 //create a server object:
 http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
   res.write('Hello World!'); //write a response to the client
   res.end(); //end the response
 }).listen(process.env.PORT || 5000);
+
+*/
+
+http.createServer(function(req, res){
+  fs.readFile('test.html',function (err, data){
+      res.writeHead(200, {'Content-Type': 'text/html','Content-Length':data.length});
+      res.write(data);
+      res.end();
+  });
+}).listen(process.env.PORT || 5000);
+
+
+
 
  // load values from the .env file in this directory into process.env
 dotenv.load();
