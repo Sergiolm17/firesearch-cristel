@@ -29,10 +29,11 @@ http.createServer(function(req, res){
 const express = require('express')
 const app = express()
 
-app.get('/', (req, res) => 
+app.get('/',function(req,res){
+  
+res.sendFile('index.html');
 
-res.sendFile('index.html')
-)
+});
 
 app.listen(process.env.PORT || 5000)
 
