@@ -14,6 +14,8 @@ http.createServer(function (req, res) {
 
 */
 
+
+/*
 http.createServer(function(req, res){
   fs.readFile('index.html',function (err, data){
       res.writeHead(200, {'Content-Type': 'text/html','Content-Length':data.length});
@@ -21,6 +23,15 @@ http.createServer(function(req, res){
       res.end();
   });
 }).listen(process.env.PORT || 5000);
+
+
+*/
+const express = require('express')
+const app = express()
+
+app.get('/', (req, res) => res.send('Hello World!'))
+
+app.listen(process.env.PORT || 5000)
 
 
 
