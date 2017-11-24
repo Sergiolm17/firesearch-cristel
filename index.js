@@ -1,10 +1,10 @@
 const algoliasearch = require('algoliasearch');
 const dotenv = require('dotenv');
 const firebase = require('firebase');
-
+/*
 var http = require('http');
 var fs = require('fs');
-/*
+
 //create a server object:
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/html'});
