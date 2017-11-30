@@ -72,3 +72,46 @@ function deleteIndexRecord(contact) {
       process.exit(1);
     });
 }
+//VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+ const indexmarca = algolia.initIndex(process.env.ALGOLIA_INDEX_MARCAS);
+ //REALTIME DATABASE
+ 
+ 
+ 
+ const contactsRefmarca = database.ref('/nombremarcas');
+ contactsRefmarca.on('child_added', addOrUpdateIndexRecord);
+ contactsRefmarca.on('child_changed', addOrUpdateIndexRecord);
+ contactsRefmarca.on('child_removed', deleteIndexRecord);
+ 
+ function addOrUpdateIndexRecord(contact) {
+   // Get Firebase object
+   const record = contact.val();
+   // Specify Algolia's objectID using the Firebase object key
+   record.objectID = contact.key;
+   // Add or update object
+   indexmarca
+     .saveObject(record)
+     .then(() => {
+       console.log('Objeto de Firebase indexado', record.objectID);
+     })
+     .catch(error => {
+       console.error('Error al indexar objero en Algolia', error);
+       process.exit(1);
+     });
+ }
+ 
+ function deleteIndexRecord(contact) {
+   // Get Algolia's objectID from the Firebase object key
+   const objectID = contact.key;
+   // Remove the object from Algolia
+   indexmarca
+     .deleteObject(objectID)
+     .then(() => {
+       console.log('Objeto de Firebase eliminado de Algolia', objectID);
+     })
+     .catch(error => {
+       console.error('Error al eliminar contacto en Algoliaa', error);
+       process.exit(1);
+     });
+ }
+ 
