@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema para optica Cristel">
+  <meta name="author" content="Sergio Manuel Lazaro Mondargo">
+  <title>VENTAS DEL DIA</title>
+
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.0.2/firebase.js"></script>
+  <!-- jQuery -->
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/ventas_del_dia.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/chat.css">
+  <!-- instantsearch -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/hilnmyskv/image/upload/c_fit,w_32,h_32/algolia-mark.ico" />
+
+
+</head>
+
+<li><b><a href="#" class="Page">test</a></b></li>
+<body>
+  <a href="index.html" class="btn btn-block btn-primary btn-lg">VOLVER</a>
+
+<div style="margin: 5px;">
+  <!-- Rounded switch -->
+  <label class="switch">
+      <input type="checkbox" id="tienda">
+      <span class="slider round"></span>
+    </label>
+    <!-- <label id="llaveto" >CODIGO</label> -->
+    
+</div>
+      
+<div class="panel panel-primary">
+  <div class="panel-heading">
+  VENTAS DEL DIA
+  </div>
+  <div class="panel-body">
+    <div class="col col-xs-12 col-md-12">
+      <form role="form" onsubmit="return false">
+        <div class="col-xs-12 col-md-6">
+          <div class="form-group">
+            <label>Marca</label>
+            <input id="name" class="form-control" type="text">
+          </div>
+        </div>
+        <div class="col-xs-12 col-xs-6">
+          <main>
+            <div id="hits"></div>
+          </main>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="messagesDiv"></div>
+
+  <!-- TEMPLATES -->
+  <script type="text/html" id="hit-template">
+    <div class="hit" style="padding:1%">
+      <div class="col-12 col-xs-12 hit-content" style="margin-bottom: 2px;">
+        <div class="col-6 col-xs-6">
+          <h2 style="margin-top:0px" class="hit-price" id={{name}}>{{name}}</h2>
+        </div>
+        <div class="col-6 col-xs-6">
+        <button type  = 'button' value= "AÑADIR" class ="btn btn-success btn-block"
+        onclick="test('wow',this)" id="{{name}}">
+        </div>
+      </div>
+    </div>
+  </script>
+  <script type="text/html" id="no-results-template">
+    <div id="no-results-message">
+      <p>No encontre ninguna marca<em>"{{query}}"</em>.</p>
+    </div>
+  </script>
+ 
+
+ <script>
+    var test = function(value,object){
+    console.log(object.id);
+    $("#name").val(object.id);
+    //inicio de fecha
+    var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+    var f=new Date();
+    var dia = f.getDate();
+    var mes =  meses[f.getMonth()];
+    var año = f.getFullYear();
+    //fin de fecha
+
+    var name = $("#name").val();
+    var n = $( "input:checked" ).length;
+    var messagesRef = new Firebase("https://cristel-d2910.firebaseio.com/marcas/"+n);
+    messagesRef.push({name:name,dia:dia,mes:mes,año:año});
+    $("#name").val(null);
+    };
+  </script>
+ 
+ <!--
+<script src="https://cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+-->
+<script src="https://cdn.jsdelivr.net/instantsearch.js/1/instantsearch.min.js"></script>
+<script src="search-simplified.js"></script>
+
+
+</body>
+</html>
