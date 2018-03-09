@@ -36,11 +36,14 @@ console.log('inicio');
 
 
 const contactsRef = database.ref('/contact');
+console.log(contactsRef);
 contactsRef.on('child_added', addOrUpdateIndexRecord);
 contactsRef.on('child_changed', addOrUpdateIndexRecord);
 contactsRef.on('child_removed', deleteIndexRecord);
 
 function addOrUpdateIndexRecord(contact) {
+ console.log(contact);
+ console.log("añadido papu");
   // Get Firebase object
   const record = contact.val();
   // Specify Algolia's objectID using the Firebase object key
@@ -58,6 +61,8 @@ function addOrUpdateIndexRecord(contact) {
 }
 
 function deleteIndexRecord(contact) {
+  console.log(contact);
+ console.log("añadido papu");
   // Get Algolia's objectID from the Firebase object key
   const objectID = contact.key;
   // Remove the object from Algolia
