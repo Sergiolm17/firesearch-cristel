@@ -35,7 +35,7 @@ console.log('inicio');
 
 
 
-const contactsRef = database.ref('/contact');
+const contactsRef = database.ref('/contacts');
 console.log(contactsRef);
 contactsRef.on('child_added', addOrUpdateIndexRecord);
 contactsRef.on('child_changed', addOrUpdateIndexRecord);
